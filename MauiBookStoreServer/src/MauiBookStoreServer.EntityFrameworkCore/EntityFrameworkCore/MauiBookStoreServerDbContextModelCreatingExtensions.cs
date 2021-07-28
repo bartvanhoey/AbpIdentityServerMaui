@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MauiBookStoreServer.Domain.Books;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace MauiBookStoreServer.EntityFrameworkCore
 {
@@ -17,6 +19,14 @@ namespace MauiBookStoreServer.EntityFrameworkCore
             //    b.ConfigureByConvention(); //auto configure for the base class props
             //    //...
             //});
+
+            builder.Entity<Book>(b =>
+            {
+                b.ToTable(MauiBookStoreServerConsts.DbTablePrefix + "Books", MauiBookStoreServerConsts.DbSchema);
+                b.ConfigureByConvention();
+            
+                b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+            });
         }
     }
 }
