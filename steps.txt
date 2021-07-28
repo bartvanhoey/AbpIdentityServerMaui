@@ -1,6 +1,13 @@
 abp new MauiBookStoreServer -o MauiBookStoreServer -u blazor
 
+
+
+install ngrok and tunnel your API with it
+
+
 dotnet new maui -n MauiBookStoreApp
 
 Open a console in the BookStoreMauiApp project folder and run
 dotnet add package IdentityModel.OidcClient --version 4.0.0
+
+add appsettings + identityseed settings => run migrator

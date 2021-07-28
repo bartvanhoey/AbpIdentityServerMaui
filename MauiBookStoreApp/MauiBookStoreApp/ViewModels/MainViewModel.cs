@@ -7,7 +7,6 @@ using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using JetBrains.Annotations;
-using MauiBookStoreApp;
 using MauiBookStoreApp.Services;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
