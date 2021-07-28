@@ -1,4 +1,5 @@
 ﻿using System;
+using MauiBookStoreApp.ViewModels;
 using Microsoft.Maui.Controls;
 
 namespace MauiBookStoreApp
@@ -8,13 +9,9 @@ namespace MauiBookStoreApp
 		public MainPage()
 		{
 			InitializeComponent();
+			BindingContext = new MainViewModel();
 		}
 
-		int count = 0;
-		private void OnCounterClicked(object sender, EventArgs e)
-		{
-			count++;
-			CounterLabel.Text = $"Current count: {count}";
-		}
+		
 	}
 }

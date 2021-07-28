@@ -35,6 +35,12 @@
 
 	<ItemGroup>
 	  <PackageReference Include="IdentityModel.OidcClient" Version="4.0.0" />
+	  <PackageReference Include="JetBrains.Annotations" Version="2021.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ViewModels\" />
+	  <Folder Include="Services\" />
 	</ItemGroup>
 
 	<PropertyGroup>

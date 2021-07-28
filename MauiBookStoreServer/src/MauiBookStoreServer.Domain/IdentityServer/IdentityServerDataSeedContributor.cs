@@ -198,6 +198,23 @@ namespace MauiBookStoreServer.IdentityServer
                     corsOrigins: new[] { swaggerRootUrl.RemovePostFix("/") }
                 );
             }
+
+             // Xamarin Client
+            var xamarinClientId = configurationSection["MauiBookStore_Xamarin:ClientId"];
+            if (!xamarinClientId.IsNullOrWhiteSpace())
+            {
+                var xamarinRootUrl = configurationSection["MauiBookStore_Xamarin:RootUrl"].TrimEnd('/');
+                await CreateClientAsync(
+                    name: xamarinClientId,
+                    scopes: commonScopes,
+                    grantTypes: new[] { "authorization_code" },
+                    secret: configurationSection["MauiBookStore_Xamarin:ClientSecret"]?.Sha256(),
+                    requireClientSecret: false,
+                    redirectUri: "xamarinformsclients:/authenticated",
+                    postLogoutRedirectUri: "xamarinformsclients:/signout-callback-oidc",                    
+                    corsOrigins: new[] { xamarinRootUrl.RemovePostFix("/") }
+                );
+            }
         }
 
         private async Task<Client> CreateClientAsync(

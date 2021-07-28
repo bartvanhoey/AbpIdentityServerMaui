@@ -59,6 +59,8 @@ namespace MauiBookStoreServer.Blazor.Menus
             }
         }
 
+        
+
         private Task ConfigureUserMenuAsync(MenuConfigurationContext context)
         {
             var accountStringLocalizer = context.GetLocalizer<AccountResource>();
