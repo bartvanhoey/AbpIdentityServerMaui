@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "MauiBookStoreApp.WinUI": {
+      "commandName": "MsixPackage"
+    }
+  }
+}
