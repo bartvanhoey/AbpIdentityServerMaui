@@ -6,6 +6,7 @@ using MauiBookStoreServer.Localization;
 using Volo.Abp.Account.Localization;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Users;
+using MauiBookStoreServer.Permissions;
 
 namespace MauiBookStoreServer.Blazor.Menus
 {
@@ -30,7 +31,7 @@ namespace MauiBookStoreServer.Blazor.Menus
             }
         }
 
-        private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
+        private async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
         {
             var l = context.GetLocalizer<MauiBookStoreServerResource>();
 
@@ -44,22 +45,18 @@ namespace MauiBookStoreServer.Blazor.Menus
                 )
             );
 
-            context.Menu.AddItem(
-    new ApplicationMenuItem(
-        "BooksStore",
-        l["Menu:BookStore"],
-        icon: "fa fa-book"
-    ).AddItem(
-        new ApplicationMenuItem(
-            "BooksStore.Books",
-            l["Menu:Books"],
-            url: "/books"
-        )
-    )
-);
+            var bookStoreMenu = new ApplicationMenuItem("BooksStore",l["Menu:BookStore"],icon: "fa fa-book");
+            context.Menu.AddItem(bookStoreMenu);
 
-
-            return Task.CompletedTask;
+            //CHECK the PERMISSION
+            if (await context.IsGrantedAsync(MauiBookStoreServerPermissions.Books.Default))
+            {
+                bookStoreMenu.AddItem(new ApplicationMenuItem(
+                    "BooksStore.Books",
+                    l["Menu:Books"],
+                    url: "/books"
+                ));
+            }
         }
 
         private Task ConfigureUserMenuAsync(MenuConfigurationContext context)

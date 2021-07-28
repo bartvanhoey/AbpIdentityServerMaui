@@ -1,5 +1,5 @@
 @page "/books"
-@* @attribute [Authorize(MauiBookStoreServerPermissions.Books.Default)] *@
+@attribute [Authorize(MauiBookStoreServerPermissions.Books.Default)]
 @using MauiBookStoreServer.Permissions
 @using Microsoft.AspNetCore.Authorization
 @using Volo.Abp.Application.Dtos
@@ -180,8 +180,8 @@
 {
   public Books()
   {
-    @* CreatePolicyName = MauiBookStoreServerPermissions.Books.Create; *@
-    @* UpdatePolicyName = MauiBookStoreServerPermissions.Books.Update; *@
-    @* DeletePolicyName = MauiBookStoreServerPermissions.Books.Delete; *@
+    CreatePolicyName = MauiBookStoreServerPermissions.Books.Create;
+    UpdatePolicyName = MauiBookStoreServerPermissions.Books.Update;
+    DeletePolicyName = MauiBookStoreServerPermissions.Books.Delete;
   }
 }
