@@ -8,7 +8,7 @@ namespace MauiBookStoreApp
 	public partial class App : Application
 	{
 
-		public const string AuthorityUrl = "https://16f385f637a1.ngrok.io";
+		public const string AuthorityUrl = "https://301eb9b6a8f9.ngrok.io";
 		public const string CallbackUri = "xamarinformsclients";
 		public static readonly string RedirectUrl = $"{CallbackUri}:/authenticated";
 		public static readonly string PostLogoutRedirectUrl = $"{CallbackUri}:/signout-callback-oidc";

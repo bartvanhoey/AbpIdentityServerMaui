@@ -6,7 +6,7 @@ namespace ConnectToApi
 {
     public partial class App
     {
-        public const string AuthorityUrl = "https://618beff66fa6.ngrok.io";
+        public const string AuthorityUrl = "https://f1d705976803.ngrok.io";
         public const string CallbackUri = "xamarinformsclients";
         public static readonly string RedirectUrl = $"{CallbackUri}:/authenticated";
         public static readonly string PostLogoutRedirectUrl = $"{CallbackUri}:/signout-callback-oidc";
